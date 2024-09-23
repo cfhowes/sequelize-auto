@@ -65,7 +65,7 @@ class AutoWriter {
         // folders for each different schema.
         const [schemaName, tableName] = (0, types_1.qNameSplit)(table);
         const fileName = (0, types_1.recase)(this.options.caseFile, tableName, this.options.singularize);
-        const filePath = path_1.default.join(this.options.directory, fileName + (this.options.lang === 'ts' ? '.ts' : '.js'));
+        const filePath = path_1.default.join(this.options.directory, fileName + (this.options.lang === 'ts' ? '.model.ts' : '.js'));
         const writeFile = util_1.default.promisify(fs_1.default.writeFile);
         return writeFile(path_1.default.resolve(filePath), this.tableText[table]);
     }

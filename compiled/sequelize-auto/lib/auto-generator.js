@@ -771,7 +771,7 @@ class AutoGenerator {
         const fields = lodash_1.default.keys(this.tables[table]);
         return fields.filter((field) => {
             const fieldObj = this.tables[table][field];
-            return fieldObj.allowNull || (!!fieldObj.defaultValue || fieldObj.defaultValue === "") || fieldObj.autoIncrement
+            return (!fieldObj.allowNull && !!fieldObj.defaultValue || fieldObj.defaultValue === "") || fieldObj.autoIncrement
                 || this.isTimestampField(field);
         });
     }
